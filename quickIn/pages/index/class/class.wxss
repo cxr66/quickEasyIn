@@ -1,0 +1,51 @@
+/* pages/index/class/class.wxss */
+.contain{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:#eee;
+  overflow: hidden;
+  margin-top: 20rpx;
+}
+.aside{
+  float:left;
+  height:100%;
+  width:190rpx; 
+  text-align:center;
+  overflow: scroll; 
+  background:#F0F2F5;
+}
+.aside::-webkit-scrollbar{
+  width:0;
+}
+.aside .menu{
+  height:100rpx;
+  color:#333;
+  font-size:26rpx;
+  line-height:100rpx;
+  border-top:1rpx solid #eee;
+}
+.aside .menu.active{
+  background:#fff;
+  color: #4384ff;
+  border-left: 10rpx #4384ff solid;
+}
+.item-content{
+  float:left;
+  width:calc(100% - 200rpx);
+  height:100%;
+  overflow-y: scroll;
+  background:#fff;
+}
+
+.item-content .box::-webkit-scrollbar{
+  width:0;
+}
+.item-content .box .item{
+  line-height:80rpx;
+  overflow: hidden;
+}
+.item-content .box .active{
+  background: #edf3ff;
+  color: #6b427e;
+}

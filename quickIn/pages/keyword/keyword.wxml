@@ -1,0 +1,25 @@
+<!--pages/keyword/keyword.wxml-->
+<view class="contain">
+  <!-- 上方搜索部分 -->
+  <view class='nav_top row'>
+    <input class='inline_block' data-blur="0" placeholder='搜索关键字/品牌/酒店名/地点' value='{{ searchValue }}' bindblur="blur_set"></input>
+  </view>
+  <!-- 导航栏 -->
+  <scroll-view class="tab bg_fff" scroll-x hidden="true" scroll-left="{{tabScroll}}" scroll-with-animation="true">
+    <block wx:for="{{menuList}}" wx:key="index">
+      <view class="tab-item  {{currentTab == index ? 'active' : ''}}" style="width:{{ 100/menuList.length < 20?'150rpx': 100/menuList.length + '%'  }}" data-current="{{ index }}" bindtap='clickMenu'>{{item.name}} </view>
+    </block>
+  </scroll-view>
+
+  <view class="navkeyWord">
+  <!-- 热搜 -->
+    <view class="keyWordItem autoView "  wx:for='{{ keyWordList }}' wx:key='key'>
+      <view class="title row fn_26"> 
+			<image src="{{ item.iconSrc }}" class='icon' lazy-load='true'></image> {{ item.title }}</view>
+      <view class="keyWList">
+          <view class="keyItem fn_24" wx:for='{{ item.list }}' wx:key='key' wx:for-item='listItem' data-keyword="{{ listItem.desc}}" bindtap="clickSelect">{{ listItem.desc }}</view>
+      </view>
+    </view>
+  </view>
+   
+</view>

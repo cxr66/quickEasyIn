@@ -1,0 +1,48 @@
+/* pages/keyword/keyword.wxss */
+.contain{
+ width: 100%;
+}
+.icon{
+  width: 36rpx;
+  height: 36rpx;
+  vertical-align: middle;
+  margin-right: 20rpx;
+}
+/* 上方 */
+.nav_top {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 20rpx 0;
+}
+.nav_top input {
+  width: 90%;
+  height: 60rpx; 
+  margin: auto;
+  font-size: 24rpx; 
+  line-height: 60rpx; 
+  border-radius: 40rpx;
+  padding-left: 60rpx;
+  background:#eeeeee url("https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3753758974,4057855761&fm=26&gp=0.jpg")no-repeat center;
+  background-size: 32rpx 32rpx;
+  background-position:20rpx 14rpx;
+}
+
+/* 内容 */
+.navkeyWord{
+  overflow: hidden;
+}
+.keyWordItem{ 
+  padding: 10rpx;
+  margin: 20rpx auto;
+}
+.keyWList{
+  margin: 10rpx auto;
+}
+.keyItem{
+  display: inline-block;
+  width: 24.5%;
+  line-height: 70rpx;
+  text-align: center;
+  border: 1rpx #eeeeee solid;
+  background-color: #ffffff; 
+}

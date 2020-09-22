@@ -1,0 +1,26 @@
+<!--pages/info/info.wxml-->
+<view class='container'>
+  <!-- 上方部分 -->
+  <view class='nav_top'>
+    <view class='userinfo text_center color_fff' >
+      <image class='userinfo-avatar' src='https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLGEyDHnkBJtYJQ8AJGVOicWhIpd1uOPo7JpXjIk8zNN5kz0WR9M26Bogjsd1iaEZoE8C8oDrLU1ic1A/132'></image>
+      <text class="fn_22">登录/注册</text>
+    </view>
+  </view>
+  <view class='pos_btn autoView row'>
+    <block wx:for='{{ infoList }}' wx:key='key'>
+      <view class='pos_item column' data-link='{{ item.link }}' bindtap='navigate'>
+        <image src='{{ item.url }}'></image>
+        <text>{{ item.desc }}</text>
+      </view>
+    </block>
+  </view>
+  <view class='section'>
+    <block wx:for='{{ setList }}' wx:key='key'>
+      <view class='autoView section_item' data-link='{{ item.link }}' bindtap='navigate'>
+        {{ item.desc}}
+        <image src='/img/icon-right.png'></image>
+      </view>
+    </block>
+  </view>
+</view>

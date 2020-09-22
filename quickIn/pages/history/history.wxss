@@ -1,0 +1,63 @@
+/* pages/history/history.wxss */ 
+.contain {
+  width: 100%;
+}
+
+/* tab部分 */
+
+.tab {
+  width: 100%;
+  height: 88rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  white-space: nowrap;
+  box-sizing: border-box;
+  overflow: hidden;
+  line-height: 80rpx;
+}
+
+.tab-item {
+  display: inline-block;
+  text-align: center;
+  font-size: 26rpx;
+  color: #8f9193;
+}
+
+.active {
+  color: #6b427e;
+  border-bottom: 4rpx solid #6b427e;
+}
+
+/* 内容 */
+
+.content {
+  padding-top: 108rpx;
+  box-sizing: border-box; 
+  font-size: 26rpx;
+}
+
+.content-item {
+  overflow-y: scroll;
+}
+/* 列表展示 */
+.hotelItem{
+  width:  96%;
+  margin:0 auto 20rpx auto;
+  overflow: hidden;
+  border-radius: 10rpx;
+}
+.hotelItem .left-image{
+  width: 220rpx;
+  height: 220rpx;
+  overflow: hidden; 
+  margin-right: 20rpx;
+}
+.left-image image{
+  width: 100%;
+  height: 100%;
+}
+.hotelItem .right-view{
+  padding: 20rpx; 
+}

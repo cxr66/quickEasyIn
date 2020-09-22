@@ -1,0 +1,57 @@
+{
+  "pages": [
+ 
+    "pages/index/index",
+    "pages/index/search/search",
+    "pages/login/login",
+    "pages/user/user",
+    "pages/calendar/calendar",
+    "pages/order/order",
+    "pages/order/orderDetail/orderDetail",
+    "pages/bluetooth/bluetooth",
+    "pages/index/class/class",
+    "pages/address/address",
+    "pages/hoteldetail/hoteldetail",
+    "pages/hoteldetail/createorder/createorder",
+    "pages/keyword/keyword",
+    "pages/pay/pay",
+    "pages/history/history", 
+    "pages/checkin/checkin", 
+    "pages/info/info",
+    "pages/info/order/order",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "tabBar": {
+    "color": "#222222",
+    "selectedColor": "#6b427e",
+    "borderStyle": "black",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "/img/tab/tab-index.png",
+        "selectedIconPath": "/img/tab/tab-index-selected.png",
+        "text": "预订"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "iconPath": "/img/tab/tab-info.png",
+        "selectedIconPath": "/img/tab/tab-info-selected.png",
+        "text": "我"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

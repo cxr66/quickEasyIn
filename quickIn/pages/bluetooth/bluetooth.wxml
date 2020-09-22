@@ -1,0 +1,2 @@
+<!--pages/bluetooth/bluetooth.wxml-->
+<view wx:for='{{ list }}' wx:key='key' data-name='{{item.name}}' data-deviceid='{{item.deviceId}}' bindtap="bindViewTap">name:{{ item.name }} —— deviceId :{{ item.deviceId }}</view>

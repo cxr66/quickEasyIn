@@ -1,0 +1,16 @@
+<!--pages/mall/class/class.wxml-->
+<view class="contain">
+  <view class="aside">
+    <view class="{{tabIndex === index ? 'menu active' : 'menu'}}" wx:for="{{menus}}" wx:key="index" data-index="{{index}}" bindtap='tabMenu'>{{item.catName}}
+    </view>
+  </view>
+  <view class="item-content">
+    <view class="box" >
+      <view class="item text_center fn_26" style="border-bottom: 1rpx solid #eeeeee;">全部快捷连锁</view>
+      <view wx:for="{{items}}" wx:key="index" class="{{ catId === item.id ? 'item text_center fn_26 active' : 'item text_center fn_26'}}" bindtap="itemClick" data-id = '{{ item.id }}'>
+        {{ item.name }}
+      </view>
+      <view wx:if='{{items.length===0}}' class='fn_26' style='text-align: center;margin: 40rpx 0;'>当前没有更多符合的酒店</view>
+    </view>
+  </view>
+</view>

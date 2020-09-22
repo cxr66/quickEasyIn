@@ -1,0 +1,101 @@
+/* pages/index/search/search.wxss */
+page{
+  overflow-x: hidden;
+  border-top: 1rpx solid #eeeeee;
+}
+.contain{
+ width: 100%;
+}
+/* 上方 */
+.nav_top {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 20rpx 0;
+  line-height: 60rpx; 
+}
+.nav_top input {
+  width: 65%;
+  height: 60rpx; 
+  margin: auto;
+  font-size: 24rpx; 
+  border-radius: 40rpx;
+  padding-left: 60rpx;
+  background:#eeeeee url("https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3753758974,4057855761&fm=26&gp=0.jpg")no-repeat center;
+  background-size: 32rpx 32rpx;
+  background-position:20rpx 14rpx;
+}
+.location{
+  width: 20%;
+  overflow: hidden;
+} 
+.ee{
+  text-decoration: line-through;
+}
+
+/* memberTips */
+.memberTips{
+  line-height: 80rpx;
+  text-align: center;
+  background-color: #ffffff;
+  border-radius: 40rpx;
+  margin: 20rpx auto;
+}
+.memberTips .tips{
+  width: 75%;
+  overflow-x: scroll;
+}
+/* tab部分 */
+.tab{
+ width: 100%;
+ height:60rpx;
+ white-space: nowrap;
+ box-sizing: border-box;
+ overflow: hidden;
+ line-height: 40rpx;
+}
+.tab-item{
+ display: inline-block; 
+ text-align: center;
+ font-size: 26rpx;
+ color: #8f9193; 
+}
+.active{
+ color: #6b427e;
+ border-radius: 40rpx;
+ border: 1rpx solid #6b427e; 
+}
+.tab-item image{
+  width: 30rpx;
+  height: 30rpx;
+  margin: 0 5rpx;
+  vertical-align: middle;
+}
+/* 内容 */
+.content{
+ margin-top: 20rpx;  
+ font-size: 26rpx;
+}
+.content-item{
+ overflow-y: scroll
+}
+
+/* 列表展示 */
+.hotelItem{
+  width:  96%;
+  margin:0 auto 20rpx auto;
+  overflow: hidden;
+  border-radius: 10rpx;
+}
+.hotelItem .left-image{
+  width: 250rpx;
+  height: 320rpx;
+  overflow: hidden; 
+}
+.left-image image{
+  width: 100%;
+  height: 100%;
+}
+.hotelItem .right-view{
+  padding: 20rpx; 
+}
+

@@ -1,0 +1,117 @@
+<!--pages/hoteldetail/hoteldetail.wxml-->
+<!--
+  @轮播图
+-->
+<view class="container">
+	<view class="carousel" hidden="true">
+		<swiper indicator-dots circular="true" duration="400">
+			<block wx:for="{{imgList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+				<swiper-item class="swiper-item">
+					<view class="image-wrapper">
+						<image class="loaded" src="{{item.src}}" mode="aspectFill"></image>
+					</view>
+				</swiper-item>
+			</block>
+		</swiper>
+	</view>
+	<scroll-view class="h-list bg_fff" scroll-x>
+		<image wx:for='{{ hSwiperList}}' wx:key='key' src="{{item}}" mode="aspectFill" data-current="{{item}}" bindtap="preview"></image>
+	</scroll-view>
+	<view class="introduce-section"><text class="title">全季上海酒店</text> 
+	</view>
+	<view class="share-section" bindtap="guideLocation">
+		<!-- <view class="share-icon"><text class="yticon icon-xingxing"></text>返</view> -->
+		<text class="tit">上海新国际博览中心店</text><text class="yticon icon-bangzhu1"></text>
+		<image class="right" src='/img/icon-location.png' style="width: 40rpx;height: 40rpx;vertical-align: middle;"></image>
+		<!-- <view class="share-btn">立即分享<text class="yticon icon-you"></text></view> -->
+	</view>
+	<view class="c-list">
+
+		<view class="c-row b-b"><text class="tit">优惠券</text><text class="con t-r red">领取优惠券</text><text class="yticon icon-you"></text></view>
+		<view class="c-row b-b"><text class="tit">促销活动</text>
+			<view class="con-list"><text>新用户入住送20元无门槛早餐代金券</text><text>订单满50减10</text> </view>
+		</view>
+		<view class="c-row b-b"><text class="tit">服务</text>
+			<view class="bz-list con"><text>· 无接触服务</text><text>· 早餐</text></view>
+		</view>
+		<view class="c-row b-b"><text class="tit">温馨提醒</text>
+			<view class="con-list"><text>入住时间：14:00 </text><text>退房时间：12:00</text> </view>
+		</view>
+
+	</view>
+	<!-- 会员本人 -->
+	<view class="autoView memberTips row fn_26">
+		<image style="width: 40rpx;height:40rpx;vertical-align:middle;margin:20rpx;" src="/img/icon-member.png" lazy-load='true'></image>
+		<view class="tips">您是玫瑰金会员，本人预定入住可享 8.8折</view>
+		<image src="/img/icon-right.png" class='rightImg right' lazy-load='true'></image>
+	</view>
+
+	<view class="detail-desc">
+		<view class=" section fn_24 row text_center" style="position: relative;" bindtap="navigate" data-link="/pages/calendar/calendar?orderFlag=0">
+			{{ checkInDate }}
+			<text class=" color_777 " style="height:40rpx;margin:20rpx 40rpx;line-height: 40rpx;border-radius: 40rpx;border: 1rpx solid #eeeeee;padding:0 10rpx">共 {{ days }} 晚</text>
+			{{ checkOutDate }}
+			<image src="/img/icon-right.png" class='rightImg right' style="position:absolute;top:30rpx;right:20rpx;" lazy-load='true'></image>
+		</view>
+		<!-- <view class="d-header"><text>房型详情</text></view> -->
+	</view>
+
+	<!-- 房型列表 -->
+	<view class="room-type-list">
+		<view class="room-type-section overflow" wx:for="{{roomTypeList}}" :key="index" bindtap="navigate" data-link="/pages/hoteldetail/createorder/createorder">
+			<view class="image-box left">
+				<image src="{{item.src}}"></image>
+			</view>
+			<view class="room-type-desc left column">
+				<text class="room-type-name fn_30">
+				{{ item.room_type }}
+				</text>
+				<text class="color_777 fn_28">
+				{{ item.desc }}
+				</text>
+				<text class="color_777 fn_28">
+				{{ item.bedDesc }}
+				</text>
+			</view>
+
+			<view class="right column">
+				<text class="room-type-name fn_50 fn_bolder">
+						¥ {{ item.room_price }}
+					</text>
+				<text class="fn_26 color_777 text_through" >
+						门市价 {{ item.room_price_offline}}
+					</text>
+				<text class="fn_28 " >
+						立即预订
+					</text>
+			</view>
+		</view>
+	</view>
+
+	<!-- 评价详情 -->
+	<view class="eva-section">
+		<view class="e-header"><text class="tit">评价</text><text>(86)</text><text class="tip">好评率 100% ></text><text class="yticon icon-you"></text></view>
+		<view class="eva-box">
+			<image class="portrait" src="http://img3.imgtn.bdimg.com/it/u=1150341365,1327279810&fm=26&gp=0.jpg" mode="aspectFill"></image>
+			<view class="right"><text class="name">Leo</text><text class="con">酒店很不错，服务很到位</text>
+				<view class="bot"><text class="attr">入住方形：舒适大床房豪华间</text><text class="time">2020-09-12 14:21</text></view>
+			</view>
+		</view>
+	</view>
+
+	<!-- 附近酒店 -->
+	<view class="guess-section">
+		<block wx:for="{{nearbyList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+			<view data-event-opts="{{[['tap',[['navToDetailPage',['$0'],[[['goodsList','',index]]]]]]]}}" class="guess-item" bindtap="__e">
+				<view class="image-wrapper">
+					<image src="{{item.image}}" mode="aspectFill"></image>
+				</view>
+				<text class="title clamp">{{item.title}}</text>
+				<text class="title clamp">{{item.point}} 距离此店{{ item.distance}}千米</text>
+				<text class="price">{{"￥"+item.price}} </text>
+			</view>
+		</block>
+	</view>
+
+
+</view>

@@ -1,0 +1,40 @@
+<!--pages/user/user.wxml-->
+<view class="container">
+	<view class="user-section">
+		<image class="bg" src="/img/swiper-index.png"></image>
+		<view class="user-info-box">
+			<view class="portrait-box">
+				<image class="portrait" src="{{userInfo.portrait}}"></image>
+			</view>
+			<view class="info-box"><text class="username">{{userInfo.nickname||'游客'}}</text></view>
+		</view>
+		<view class="vip-card-box">
+			<image class="card-bg" src="/img/vip-card-bg.png" mode></image>
+			<view class="b-btn">立即开通</view>
+			<view class="tit"><text class="yticon icon-iLinkapp-"></text>HOTEL 会员</view><text class="e-m">酒店预订平台</text><text class="e-b">开通会员</text>
+		</view>
+	</view>
+	<view class="cover-container" style="{{'transform:'+(coverTransform)+';'+('transition:'+(coverTransition)+';')}}" bindtouchstart="coverTouchstart" bindtouchmove="coverTouchmove" bindtouchend="coverTouchend">
+		<image class="arc" src="/img/arc.png"></image>
+		<view class="tj-sction">
+			<view class="tj-item"><text class="num">128.8</text><text>余额</text></view>
+			<view class="tj-item"><text class="num">0</text><text>优惠券</text></view>
+			<view class="tj-item"><text class="num">20</text><text>积分</text></view>
+		</view>
+		<view class="order-section">
+			<view class="order-item column" hover-class="common-hover" hover-stay-time="{{50}}" data-link="/pages/order/order?state=0" bindtap="navigate"><image style="width: 40rpx;height:40rpx;margin-bottom:4rpx;" src="/img/my/icon-order.png"></image><text>全部订单</text></view>
+			<view class="order-item column" hover-class="common-hover" hover-stay-time="{{50}}" data-link="/pages/order/order?state=1" bindtap="navigate"> <image style="width: 40rpx;height:40rpx;margin-bottom:4rpx;" src="/img/my/icon-checkin.png"></image><text>待入住</text></view>
+			<view class="order-item column" hover-class="common-hover" hover-stay-time="{{50}}" data-link="/pages/order/order?state=2" bindtap="navigate"> <image style="width: 40rpx;height:40rpx;margin-bottom:4rpx;" src="/img/my/icon-goods.png"></image>
+			<text>商品订单</text></view>
+			<!-- <view class="order-item" hover-class="common-hover" hover-stay-time="{{50}}" data-link="/pages/order/order?state=4" bindtap="navigate"><text class="yticon icon-shouhoutuikuan"></text><text>退款/售后</text></view> -->
+		</view>
+		<view class='section'>
+			<block wx:for='{{ setList }}' wx:key='key'>
+				<view class='autoView section_item' data-link='{{ item.link }}' bindtap='navigate'>
+					{{ item.desc}}
+					<image src='/img/icon-right.png'></image>
+				</view>
+			</block>
+		</view>
+	</view>
+</view>

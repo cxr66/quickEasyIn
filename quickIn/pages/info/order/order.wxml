@@ -1,0 +1,15 @@
+<!--pages/my/order/order.wxml-->
+<view class="contain" >
+  <scroll-view class="tab bg_fff" scroll-x scroll-left="{{tabScroll}}" scroll-with-animation="true">
+    <block wx:for="{{menuList}}" wx:key="index">
+      <view wx:if='{{ index==3 }}' class="tab-item {{currentTab == index ? 'active' : ''}}" style='width: {{ 100/menuList.length }}%;' data-current="{{index}}" bindtap='clickMenu'>{{item.name}}</view>
+      <view wx:else class="tab-item {{currentTab == index ? 'active' : ''}}" style='width: {{ 100/menuList.length }}%;' data-current="{{ index }}" bindtap='clickMenu'>{{item.name}}</view>
+    </block>
+  </scroll-view>
+ 
+  <swiper class="content" style='height: {{windowHeight}}px' duration="1000" current="{{currentTab}}" bindchange="changeContent">
+    <swiper-item class="content-item" wx:for="{{menuList}}" wx:key="index">
+  
+    </swiper-item>
+  </swiper>
+</view>

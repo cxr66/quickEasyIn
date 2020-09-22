@@ -1,0 +1,65 @@
+<!--pages/index/search/search.wxml-->
+<view class="contain">
+	<!-- 上方搜索部分 -->
+	<view class='nav_top row'>
+		<view class="location fn_26 row text_center"><text style="margin-left:20rpx;">{{ locationCity }}</text>
+			<image style="width: 20rpx;height:20rpx;vertical-align:middle;margin: 20rpx 0 0 20rpx;" src="/img/icon-bottom.png" lazy-load='true'></image>
+		</view>
+		<input class='inline_block' data-blur="0" placeholder='搜索关键字/品牌/酒店' value='{{ searchValue }}' bindblur="blur_set"></input>
+	</view>
+	<view class=" section fn_26 ">
+		<!-- 导航栏 -->
+		<scroll-view class="tab bg_fff" style="height: 80rpx;line-height: 80rpx">
+			<block wx:for="{{filterList}}" wx:key="index">
+				<view class="tab-item column" style="width:{{ 100/filterList.length < 20?'150rpx': 100/filterList.length + '%'  }}" data-current="{{ index }}">
+					<image src='{{item.src}}'></image>
+					<text>{{item.name}}</text>
+				</view>
+			</block>
+		</scroll-view>
+	</view>
+	<!-- 导航栏 -->
+	<view class="tab" style="position: relative;">
+		<view class="location fn_26 row text_center" style="width:25%;height:60rpx;position: absolute;top:0;left: 0;background-color:#ffffff;"><text style="margin-left:20rpx;"> 官网优惠</text>
+			<image style="width: 20rpx;height:20rpx;vertical-align:middle;margin: 10rpx 0 0 10rpx;" src="/img/icon-bottom.png" lazy-load='true'></image>
+		</view>
+
+		<scroll-view class="tab bg_fff" scroll-x scroll-left="{{tabScroll}}" style="width: 75%;margin-left:25%" scroll-with-animation="true">
+			<block wx:for="{{menuList}}" wx:key="index">
+				<view class="tab-item  {{currentTab == index ? 'active' : ''}}" style="width:{{ 100/menuList.length < 20?'150rpx': 100/menuList.length + '%'  }}" data-current="{{ index }}" bindtap='clickMenu'>{{item.name}}</view>
+			</block>
+		</scroll-view>
+	</view>
+
+
+	<!-- 会员本人 -->
+	<view class="autoView memberTips row fn_26">
+		<image style="width: 40rpx;height:40rpx;vertical-align:middle;margin:20rpx;" src="/img/icon-member-bed.png" lazy-load='true'></image>
+		<view class="tips">会员本人预定本人入住一晚累计1～1.5间夜</view>
+		<image src="/img/icon-right.png" class='rightImg right' lazy-load='true'></image>
+	</view>
+
+	<!-- 页面 -->
+	<view class="content" style='height: {{windowHeight}}px'>
+		<view class="content-item">
+			<!-- 列表展示 -->
+			<ul>
+				<li wx:for="{{hotelList}}" wx:key="index" class='hotelItem bg_fff row text_overflow autoView' data-link='/pages/hoteldetail/hoteldetail' bindtap='navigate'>
+					<view class='left-image'>
+						<image src="{{ item.hotelImg }}" mode="aspectFill" lazy-load='true'></image>
+					</view>
+
+					<view class="right-view">
+						<text class=" fn_28 line_height_50">{{ item.name }}</text>
+						<view class="text_overflow fn_26 color_777 line_height_50">{{ item.point }} 分 “{{ item.commentWord }}” <text>{{item.commentNum}}条评论 </text></view>
+
+						<view class="text_overflow fn_26 color_777 line_height_50">距我939m ｜ 虹桥 / 闵行区</view>
+						<view class="text_overflow fn_24 color_777 line_height_50"><text class="circle">无接触服务</text> </view>
+						<view class="text_overflow fn_22 color_777 text_right line_height_50"><text class="ee">门市价 ¥ 319</text></view>
+						<view class="text_overflow fn_32 fn_bolder text_right color_orange"><text> ¥ 218 </text>起</view>
+					</view>
+				</li>
+			</ul>
+		</view>
+	</view>
+</view>

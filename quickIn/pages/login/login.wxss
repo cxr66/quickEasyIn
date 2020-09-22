@@ -1,0 +1,37 @@
+/* pages/login/login.wxss */
+
+page {
+  background-color: #fff;
+  padding: 130rpx 0;
+}
+
+.tipsView {
+  margin: 20rpx 74rpx 60rpx 74rpx;
+}
+
+.tips {
+  line-height: 80rpx;
+  border-bottom: 8rpx solid #4385ff;
+}
+
+/* form */
+
+.form {
+  margin: 0 74rpx;
+}
+
+.input {
+  padding: 20rpx 0;
+  margin: 30rpx 0;
+  border-bottom: #eee solid 2rpx;
+}
+
+.input input {
+  width: 75%;
+  line-height: 100rpx;
+}
+.getCode{ 
+  font-family:PingFang SC;
+  font-weight:400;
+  color:rgba(67,133,255,1);
+}

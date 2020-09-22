@@ -1,0 +1,319 @@
+/**app.wxss**/
+/* {
+        "pagePath": "pages/checkin/checkin",
+        "iconPath": "/img/tab/tab-checkin.png",
+        "selectedIconPath": "/img/tab/tab-checkin-selected.png",
+        "text": "入住"
+      },
+      {
+        "pagePath": "pages/service/service",
+        "iconPath": "/img/tab/tab-service.png",
+        "selectedIconPath": "/img/tab/tab-service-selected.png",
+        "text": "服务"
+      }, */
+page {
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+  overflow-x: hidden;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+switch {
+  zoom: 0.6;
+}
+
+.block {
+  display: block;
+}
+
+.inline_block {
+  display: inline-block;
+}
+
+.none {
+  display: none;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.overflow {
+  overflow: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+button::after {
+  border: none;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.text_overflow {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.text_center {
+  text-align: center;
+}
+
+.text_right {
+  text-align: right;
+}
+
+.text_through {
+  text-decoration: line-through;
+}
+
+.autoView {
+  width: 94%;
+  margin: auto;
+  /* border: 1px red solid; */
+}
+
+.bg_fff {
+  background-color: #fff;
+}
+
+.bg_green {
+  background-color: #03d568;
+}
+
+.default {
+  /* color: rgb(128, 0, 128); */
+  color: #6b427e;
+}
+
+.cg_color {
+  color: #2080de;
+}
+
+.color_orange {
+  color: orange;
+}
+
+.color_000 {
+  color: #000;
+}
+
+.color_fff {
+  color: #fff;
+}
+
+.color_f00 {
+  color: #f00;
+}
+
+.color_777 {
+  color: #777777;
+}
+
+.color_eee {
+  color: #eeeeee;
+}
+
+.bg_color {
+  background-color: #6b427e;
+}
+
+.bg_grey {
+  background-color: #f5f5f5;
+}
+
+.fn_20 {
+  font-size: 20rpx;
+}
+
+.fn_22 {
+  font-size: 22rpx;
+}
+
+.fn_24 {
+  font-size: 24rpx;
+}
+
+.fn_26 {
+  font-size: 26rpx;
+}
+
+.fn_28 {
+  font-size: 28rpx;
+}
+
+.fn_30 {
+  font-size: 30rpx;
+}
+
+.fn_32 {
+  font-size: 32rpx;
+}
+
+.fn_50 {
+  font-size: 50rpx;
+}
+
+.fn_bolder {
+  font-weight: bolder;
+}
+
+.line_height_50 {
+  line-height: 50rpx;
+}
+
+/* 用户头像 */
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+}
+
+.user-btn {
+  border-radius: 50%;
+  margin-top: 30rpx;
+  line-height: 100rpx;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx auto;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.circle {
+  border: 1rpx solid orange;
+  color: orange;
+  border-radius: 20rpx;
+  padding: 0 5rpx;
+}
+
+/* tabbar组件样式全局化 */
+
+.tabbar_box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  height: 100rpx;
+  border-top: 1rpx solid #d7d7d7;
+}
+
+.tabbar_nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 20rpx;
+  height: 100%;
+}
+
+.tabbar_icon {
+  width: 34rpx;
+  height: 37rpx;
+  margin-bottom: 10rpx;
+}
+
+.tabbar_nav:nth-child(3) image {
+  width: 89rpx;
+  height: 89rpx;
+  margin-bottom: 0;
+}
+
+/* .tabbar_nav:nth-child(2) text{  
+    position:relative; 
+    top:-32rpx;
+} */
+
+/* 右边箭头图标 */
+
+.rightImg {
+  width: 44rpx;
+  height: 44rpx;
+  margin: auto;
+}
+
+/* 按钮 */
+
+.btn {
+  width: 80%;
+  margin: 50rpx auto;
+  line-height: 80rpx;
+  background: #6b427e;
+  border-radius: 40rpx;
+  color: #fff;
+  text-align: center;
+}
+
+/* 弹窗 */
+
+.mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 90;
+  background: rgba(0, 0, 0, 1);
+  opacity: 0.3;
+}
+
+
+
+/* tab部分 */
+.tab {
+  width: 100%;
+  height: 84rpx;
+  white-space: nowrap;
+  box-sizing: border-box;
+  overflow: hidden;
+  line-height: 80rpx;
+}
+
+.tab-item {
+  display: inline-block;
+  text-align: center;
+  font-size: 26rpx;
+  color: #8f9193;
+}
+
+.active {
+  color: #6b427e;
+  border-bottom: 4rpx solid #6b427e;
+}

@@ -1,0 +1,28 @@
+<!--pages/history/history.wxml-->
+<view class="contain" >
+  <scroll-view class="tab bg_fff" scroll-x scroll-left="{{tabScroll}}" scroll-with-animation="true">
+    <block wx:for="{{menuList}}" wx:key="index">
+      <view wx:if='{{ index==3 }}' class="tab-item {{currentTab == index ? 'active' : ''}}" style='width: {{ 100/menuList.length }}%;' data-current="{{index}}" bindtap='clickMenu'>{{item.name}}</view>
+      <view wx:else class="tab-item {{currentTab == index ? 'active' : ''}}" style='width: {{ 100/menuList.length }}%;' data-current="{{ index }}" bindtap='clickMenu'>{{item.name}}</view>
+    </block>
+  </scroll-view>
+ 
+  <swiper class="content" style='height: {{windowHeight}}px' duration="1000" current="{{currentTab}}" bindchange="changeContent">
+    <swiper-item class="content-item" wx:for="{{menuList}}" wx:key="index">
+    <!-- 列表展示 -->
+			<ul>
+				<li wx:for="{{hotelList}}" wx:key="index" class='hotelItem bg_fff row text_overflow autoView' data-link='/pages/hoteldetail/hoteldetail?id={{item.id}}' bindtap='navigate'>
+					<view class='left-image'>
+						<image src="{{ item.hotelImg }}" mode="aspectFill" lazy-load='true'></image>
+					</view>
+
+					<view class="right-view">
+						<text class=" fn_28 line_height_50">{{ item.name }}</text>
+						<view class="text_overflow fn_26 color_777 line_height_50">{{ item.point }} 分 “{{ item.commentWord }}” <text>{{item.commentNum}}条评论 </text></view>
+						<view class="text_overflow fn_32 text_right color_orange"><text> ¥ 218 </text>起</view>
+					</view>
+				</li>
+			</ul>
+    </swiper-item>
+  </swiper>
+</view>

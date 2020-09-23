@@ -1,5 +1,8 @@
 // pages/index/search/search.js
 var app = getApp();
+
+var Moment = require("../../../utils/moment.js");
+var { getDaysBetween } = require("../../../utils/util.js");
 var that = undefined; 
 Page({
 
@@ -26,22 +29,7 @@ Page({
     windowWidth: '',
 
     searchValue: '',
-    /* 筛选 */
-    filterList: [{
-      name: '09/25 1晚',
-      src: '/img/icon-bottom-empty.png',
-      flag: 0
-    },
-    {
-      name: '距离排序',
-      src: '/img/icon-bottom-empty.png',
-      flag: 1
-    },
-    {
-      name: '筛选',
-      src: '/img/icon-bottom-empty.png',
-      flag: 2
-    }],
+    
     /* 酒店列表 */
     hotelList: [
       {
@@ -91,16 +79,45 @@ Page({
         this.setData({
           windowHeight: res.windowHeight,
           windowWidth: res.windowWidth,
-          locationCity:wx.getStorageSync('city')
+          locationCity:wx.getStorageSync('city'),
+          orderFlag: options.orderFlag ,// 预定的类型：全日房 or 日租房
+          /* 筛选 */
+          filterList: [{
+            name: '',
+            src: '/img/icon-bottom-empty.png',
+            flag: 0,
+            tap:'navigate',
+            link: '/pages/calendar/calendar?orderFlag={{orderFlag}}'
+          },
+          {
+            name: '距离排序',
+            src: '/img/icon-bottom-empty.png',
+            flag: 1,
+            tap:'changeFilteShow',
+          },
+          {
+            name: '筛选',
+            src: '/img/icon-bottom-empty.png',
+            flag: 2,
+            tap: 'navigate',
+            link: '/pages/index/screening/screening'
+          }],
+          checkFilteShow: true
         })
       },
     })
- 
-    if (options.catId) {
-      that.getInfoByCatId(1, 100, options.catId)
-    }
+
+
+
+    that.getCheckFilterList(); // 请求排序列表
+
   },
 
+  /* 是否显示排序弹窗 */
+
+  changeFilteShow(){
+    this.setData({ checkFilteShow: !this.data.checkFilteShow })
+  },
   /* 搜索酒店 */
   search(start, size, name) {
 
@@ -155,11 +172,33 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-      this.setData({
-        searchValue: wx.getStorageSync('keyWord')?wx.getStorageSync('keyWord'):''
-      })
+    let getDate = wx.getStorageSync("ROOM_SOURCE_DATE");
+    console.log(getDate,'getDate');
+    this.setData({
+      checkInDate: getDate.checkInDate,
+      checkOutDate: getDate.checkOutDate,
+      days: getDaysBetween(getDate.checkInDate, getDate.checkOutDate), 
+      searchValue: wx.getStorageSync('keyWord')?wx.getStorageSync('keyWord'):'',
+      ['filterList[0].name']: getDate.checkInDate.split('-')[1] + '/' + getDate.checkInDate.split('-')[2]+ ' '+ getDaysBetween(getDate.checkInDate, getDate.checkOutDate)+'晚'
+    })
   },
 
+  /* 查询并且筛选推荐距离排序 */
+  getCheckFilterList(){
+    // 请求接口
+    this.setData({
+      fixFilterList:[{name: '推荐排序',id: 0},{name: '距离排序',id: 1},{name: '评分排序',id: 2}],
+      checkFilterId: 0 // 后期可从接口中请求到默认排序
+    })
+  },
+  checkFilter(e){
+    console.log(e,'e')
+    this.setData({
+      ['filterList[1].name']: e.target.dataset.name,
+      checkFilterId: e.currentTarget.dataset.id,
+    })
+    this.changeFilteShow(); // 隐藏定位排序列表
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */
@@ -201,5 +240,9 @@ Page({
     wx.navigateTo({
       url: link
     })
+  },
+  // 禁止触摸滑动
+  preventTouchMove: function () {
+
   },
 })

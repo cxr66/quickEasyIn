@@ -3,6 +3,7 @@
  
     "pages/index/index",
     "pages/index/search/search",
+    "pages/index/screening/screening",
     "pages/login/login",
     "pages/user/user",
     "pages/calendar/calendar",

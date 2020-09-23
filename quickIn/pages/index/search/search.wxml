@@ -7,16 +7,20 @@
 		</view>
 		<input class='inline_block' data-blur="0" placeholder='搜索关键字/品牌/酒店' value='{{ searchValue }}' bindblur="blur_set"></input>
 	</view>
-	<view class=" section fn_26 ">
+	<view class=" section fn_26 relative">
 		<!-- 导航栏 -->
 		<scroll-view class="tab bg_fff" style="height: 80rpx;line-height: 80rpx">
 			<block wx:for="{{filterList}}" wx:key="index">
-				<view class="tab-item column" style="width:{{ 100/filterList.length < 20?'150rpx': 100/filterList.length + '%'  }}" data-current="{{ index }}">
-					<image src='{{item.src}}'></image>
+				<view class="tab-item column" bindtap="{{item.tap}}" data-link="{{item.link}}" style="width:{{ 100/filterList.length < 20?'150rpx': 100/filterList.length + '%'  }}" data-current="{{ index }}"  >
+					<image style="transform:{{!checkFilteShow&&index===1?'rotate(180deg)':'rotate(0deg)'}}" src='{{item.src}}'></image>
 					<text>{{item.name}}</text>
 				</view>
 			</block>
 		</scroll-view>
+		<!-- <view class="navFixFilterModal" style="height:(calc({{windowHeight}}-100))rpx" catchtouchmove="preventTouchMove"></view> -->
+		<view hidden="{{checkFilteShow}}" class="navFixFilter bg_fff column">
+			<view  wx:for="{{fixFilterList}}" wx:key="index2" class="autoView FixItem fn_26 {{ item.id===checkFilterId?'FilterActive':''}}" bindtap='checkFilter' data-id='{{item.id}}' data-name='{{item.name}}'>{{ item.name }} <image hidden="{{item.id!==checkFilterId}}" src="/img/icon-duihao.png" style="margin-top:12rpx" class="rightImg right"></image></view>
+		</view>	
 	</view>
 	<!-- 导航栏 -->
 	<view class="tab" style="position: relative;">

@@ -1,7 +1,7 @@
 <!--pages/user/user.wxml-->
 <view class="container">
-	<view class="user-section">
-		<image class="bg" src="/img/swiper-index.png"></image>
+	<view class="user-section bg_default">
+		<!-- <image class="bg" src="/img/swiper-index.png"></image> -->
 		<view class="user-info-box">
 			<view class="portrait-box">
 				<image class="portrait" src="{{userInfo.portrait}}"></image>

@@ -110,6 +110,9 @@ button::after {
   /* color: rgb(128, 0, 128); */
   color: #6b427e;
 }
+.bg_default{
+  background-color: #6b427e;
+}
 
 .cg_color {
   color: #2080de;

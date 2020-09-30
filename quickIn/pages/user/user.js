@@ -10,20 +10,22 @@ Page({
     coverTransition: '0s',
     moving: false,
     // 设置
-    setList: [
+    setList: [ 
       {
-        desc: '我的钱包',
-        link: '',
-      }, 
+        desc: '会员计划',
+        link: '/pages/user/plan/plan',
+      },
       {
-        desc: '会员',
-        link: '',
-      },{
+        desc: '第三方账号',
+        link: '/pages/user/bind/bind',
+      },
+      /* {
         desc: '地址管理',
         link: '/pages/address/address',
-      },
+      }, */
     ],
   },
+  // 
   /** * 统一跳转接口,拦截未登录路由
               * navigator标签现在默认没有转场动画，所以用view
    */ 

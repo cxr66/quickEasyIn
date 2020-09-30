@@ -1,0 +1,4 @@
+<!--pages/user/plan/plan.wxml-->
+<import src="../../../wxParse/wxParse.wxml" />
+
+<template is="wxParse" data="{{wxParseData:Desc.nodes}}" />

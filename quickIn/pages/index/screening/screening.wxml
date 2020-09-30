@@ -1,2 +1,24 @@
 <!--pages/index/screening/screening.wxml-->
-<text>pages/index/screening/screening.wxml</text>
+<view class="content">
+	<scroll-view class="left-aside" scroll-y>
+		<block wx:for="{{flist}}" wx:for-item="item" wx:for-index="__i0__" wx:key="id">
+			<view class="{{['f-item b-b',(item.id===currentId)?'active':'']}}" bindtap="tabtap" data-name='{{item.name}}' data-fid='{{item.id}}'>{{''+item.name+''}}</view>
+		</block>
+	</scroll-view>
+	<scroll-view class="right-aside" scroll-with-animation scroll-y scroll-top="{{tabScrollTop}}"  bindscroll="scroll">
+		<block >
+			<view class="s-list" >
+      <text class="s-item">{{ currentTitle}}</text>
+				<view class="t-list">
+					<block wx:for="{{slist}}" wx:for-item="sitem" wx:for-index="__i2__" wx:key="id">
+						<block>
+							<view class="t-item" bindtap="navToList" data-sid="{{sitem.id}}" >
+								<image src="{{sitem.image}}"></image><text>{{sitem.title}}</text>
+							</view>
+						</block>
+					</block>
+				</view>
+			</view>
+		</block>
+	</scroll-view>
+</view>

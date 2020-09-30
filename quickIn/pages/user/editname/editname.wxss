@@ -1,0 +1,22 @@
+/* pages/user/editname/editname.wxss */
+page {
+  background-color: #fff;
+  padding: 20rpx 0;
+}
+/* form */
+
+.form {
+  margin: 0 74rpx;
+}
+
+.input {
+  padding: 20rpx 0;
+  margin: 30rpx 0;
+  border-bottom: #6b427e solid 2rpx;
+  border-radius: 40rpx;
+}
+
+.input input {
+  width: 75%;
+  line-height: 100rpx;
+} 

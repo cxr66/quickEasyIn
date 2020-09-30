@@ -1,0 +1,13 @@
+<!--pages/user/editname/editname.wxml-->
+<!-- form表单 -->
+<form>
+  <view class="form">
+    <view class="input name">
+      <input placeholder='请输入修改用户名字' name="username" value='{{ userName }}' bindinput="bindinput"></input>
+    </view>  
+  </view>
+  <view class="btn" bindtap="updateName">
+    修改
+  </view>
+
+</form>

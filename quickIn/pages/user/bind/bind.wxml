@@ -1,0 +1,9 @@
+<!--pages/user/bind/bind.wxml-->
+<view class='section'>
+    <block wx:for='{{ bindList }}' wx:key='key' wx:for-index='index'>
+      <view class='section_item' bindtap='{{ item.bind }}'>
+        {{ item.name }} 
+         <switch class='right' checked bindchange="switchChange" data-index="{{index}}" color='#6b427e'/> 
+      </view>
+    </block>
+</view>

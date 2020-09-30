@@ -57,17 +57,29 @@
           align-items: center;
   position: relative;
   z-index: 1;
-}
-.user-info-box .portrait {
-  width: 130rpx;
-  height: 130rpx;
-  border: 5rpx solid #fff;
+}  .portrait {
+  width: 30rpx;
+  height: 30rpx;
+  border: 2rpx solid #fff;
   border-radius: 50%;
 }
 .user-info-box .username {
   font-size: 38rpx;
   color: #303133;
   margin-left: 20rpx;
+}
+.info-edit{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 6;
+  overflow-x: scroll;
+  width: 100%;
+  line-height: 100rpx;
+  text-align: center;
+}
+.editImg{
+  vertical-align: middle;
 }
 .vip-card-box {
   display: -webkit-box;
@@ -158,11 +170,14 @@
   margin-top: 20rpx;
 }
 .order-section .order-item {
-  width: 120rpx;
-  height: 120rpx;
+  width: 140rpx;
+  height: 140rpx;
   border-radius: 10rpx;
-  font-size: 24rpx;
+  font-size: 26rpx;
   color: #303133;
+}
+.order-section .order-item  .row{
+  margin: 30rpx 0;
 }
 .order-section .yticon {
   font-size: 48rpx;

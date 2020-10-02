@@ -18,7 +18,7 @@
 			<!-- 导航栏 -->
 			<scroll-view class="tab bg_fff" scroll-x scroll-left="{{tabScroll}}" scroll-with-animation="true">
 				<block wx:for="{{menuList}}" wx:key="index">
-					<view class="tab-item  {{currentTab == index ? 'active' : ''}}" style="width:{{ 100/menuList.length < 20?'150rpx': 100/menuList.length + '%'  }}" data-current="{{ index }}" bindtap='clickMenu'>{{item.name}} </view>
+					<view class="tab-item" style="width:{{ 100/menuList.length < 20?'150rpx': 100/menuList.length + '%'  }}" data-current="{{ index }}" bindtap='clickMenu'><text class="{{currentTab == index ? 'active' : ''}}">{{item.name}}</text> </view>
 				</block>
 			</scroll-view>
 		</view>
@@ -43,7 +43,7 @@
 			<image src="/img/icon-right.png" class='rightImg' style="position:absolute;right:0;top: 10rpx;" lazy-load='true'></image>
 		</view>
 		<view wx:else class=" section fn_24 " bindtap="navigate" data-link="/pages/calendar/calendar?orderFlag={{currentTab}}">
-			<text class="fn_30">{{ checkInDate }} - {{ checkOutDate }} </text>
+			<text class="fn_30">{{ checkInDate }} - {{ checkOutDate }} 周{{weekDay}}</text>
 			<image src="/img/icon-right.png" class='rightImg right' lazy-load='true'></image>
 			<text class="right color_777">共 {{ days }} 晚</text>
 		</view>

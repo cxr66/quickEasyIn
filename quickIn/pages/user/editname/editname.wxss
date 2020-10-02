@@ -13,7 +13,7 @@ page {
   padding: 20rpx 0;
   margin: 30rpx 0;
   border-bottom: #6b427e solid 2rpx;
-  border-radius: 40rpx;
+  /* border-radius: 40rpx; */
 }
 
 .input input {

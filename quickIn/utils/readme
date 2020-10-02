@@ -18,3 +18,6 @@
     "pages/info/info",            // 用户个人中心
     "pages/info/order/order",     // 订单详情
     "pages/logs/logs"             // 日志
+    "pages/user/editname/editname", // 修改名称
+    "pages/user/plan/plan", // 会员计划展示：其中需要注意的是，可能是富文本解析，会员计划不会写死，需要用到wxParse插件，我已经在页面写过了，wxml中引入组件，需要对数据进行处理的地方在js中已经写过示例
+    "pages/user/bind/bind", // 支付宝等第三方支付的页面，函数也已经写过，直接调用接口

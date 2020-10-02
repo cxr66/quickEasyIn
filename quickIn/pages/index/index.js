@@ -15,6 +15,7 @@ Page({
    */
   data: {
     /* 轮播图 */
+    weekStr: ['日', '一', '二', '三', '四', '五', '六'],
     indicatorDots: false,
     autoplay: true,
     duration: 3000,
@@ -69,6 +70,11 @@ Page({
       url: link
     })
   },
+  /* 判断日期是周几 */
+  getToday(date) {
+    var myDate = new Date(Date.parse(date));
+    return this.data.weekStr[myDate.getDay()]
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -79,7 +85,8 @@ Page({
       key: 'ROOM_SOURCE_DATE',
       data: {
         checkInDate: Moment(new Date()).format('YYYY-MM-DD'),
-        checkOutDate: Moment(new Date()).add(1, 'day').format('YYYY-MM-DD')
+        checkOutDate: Moment(new Date()).add(1, 'day').format('YYYY-MM-DD'),
+        weekDay: this.getToday(Moment(new Date()).format('YYYY-MM-DD'))
       }
     });
 
@@ -173,6 +180,7 @@ Page({
     this.setData({
       checkInDate: getDate.checkInDate.split('-')[1] + '月' + getDate.checkInDate.split('-')[2] + '日',
       checkOutDate: getDate.checkOutDate.split('-')[1] + '月' + getDate.checkOutDate.split('-')[2] + '日',
+      weekDay: getDate.weekDay,
       days: getDaysBetween(getDate.checkInDate, getDate.checkOutDate),
       ['form.keyWord']: wx.getStorageSync('keyWord')?wx.getStorageSync('keyWord'):'酒店位置/名称/关键词'
     })

@@ -8,8 +8,10 @@
 /* 图片加载中颜色 */
 /* 行为相关颜色 */
 page {
+  width: 100%;
   background: #f8f8f8;
   padding-bottom: 60rpx;
+  overflow-x: hidden;
 }
 
 .font-size-20 { 
@@ -57,17 +59,18 @@ page {
 }
 /* scroll-view */
 .h-list {
+  width: 100%;
   border-top: 1rpx #eeeeee solid;
   white-space: nowrap;
-  padding: 30rpx 0 0  30rpx; 
+  /* padding: 0 0 0  30rpx;  */
   height: 300rpx;
-  padding-right: 50rpx;
+  /* padding-right: 50rpx; */
 }
 .h-list image {
   display: inline-block;
   width: 260rpx;
   height: 260rpx;
-  margin-right: 20rpx;
+  margin: 0 20rpx;
   border-radius: 10rpx;
 }
 

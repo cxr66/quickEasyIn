@@ -16,9 +16,9 @@ Page({
     markcheckOutDate: false,   //标记结束时间是否已经选择
     sFtv: [
       {
-        month:1,
-        day:1,
-        name:"元旦"
+        month: 1,
+        day: 1,
+        name: "元旦"
       },
       {
         month: 2,
@@ -129,6 +129,11 @@ Page({
     this.setData({
       orderFlag: options.orderFlag
     })
+  },
+  /* 判断日期是周几 */
+  getToday(date) {
+    var myDate = new Date(Date.parse(date));
+    return this.data.weekStr[myDate.getDay()]
   },
   onReady: function () {
     // 页面渲染完成z
@@ -254,17 +259,17 @@ Page({
       dateList.push(dateItem);
     }
     var sFtv = this.data.sFtv;
-    for (let i = 0; i < dateList.length; i++){//加入公历节日
-       for(let k = 0; k < sFtv.length; k++){
-         if (dateList[i].month == sFtv[k].month){
-           let days = dateList[i].days;
-           for (let j = 0; j < days.length; j++){
-             if (days[j].day == sFtv[k].day){
-               days[j].daytext = sFtv[k].name
-             }
-           }
-         }
-       }
+    for (let i = 0; i < dateList.length; i++) {//加入公历节日
+      for (let k = 0; k < sFtv.length; k++) {
+        if (dateList[i].month == sFtv[k].month) {
+          let days = dateList[i].days;
+          for (let j = 0; j < days.length; j++) {
+            if (days[j].day == sFtv[k].day) {
+              days[j].daytext = sFtv[k].name
+            }
+          }
+        }
+      }
     }
     this.setData({
       dateList: dateList
@@ -328,11 +333,12 @@ Page({
         key: 'ROOM_SOURCE_DATE',
         data: {
           checkInDate: this.data.checkInDate,
-          checkOutDate: this.data.checkOutDate
+          checkOutDate: this.data.checkOutDate,
+          weekDay: this.getToday(this.data.checkInDate)
         }
       });
       // setTimeout(() => {
-        wx.navigateBack({
+      wx.navigateBack({
         delta: 1, // 回退前 delta(默认为1) 页面
       });
       // }, 1000);

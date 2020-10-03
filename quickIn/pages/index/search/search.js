@@ -33,7 +33,7 @@ Page({
     /* 酒店列表 */
     hotelList: [
       {
-        hotelImg: 'https://bkimg.cdn.bcebos.com/pic/21a4462309f7905254a1159806f3d7ca7acbd5de?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg',
+        hotelImg: 'https://dss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1658000060,172298760&fm=26&gp=0.jpg',
         name: '桔子水晶酒店（上海虹桥机场店）',
         point: 8.4,
         commentWord: '性价比高 服务好',
@@ -44,7 +44,8 @@ Page({
         distance: 3
       },
       {
-        hotelImg: '/img/swiper-index.png',
+        hotelImg: 'https://dss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=4100935263,1567407806&fm=15&gp=0.jpg',
+        // hotelImg:'https://dss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1658000060,172298760&fm=26&gp=0.jpg',
         name: '维也纳酒店（上海虹桥机场九亭店）',
         point: 7.8,
         commentWord: '地理位置优越',

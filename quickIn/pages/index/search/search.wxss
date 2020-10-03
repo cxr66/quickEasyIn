@@ -124,6 +124,8 @@ page{
   height: 100%;
 }
 .hotelItem .right-view{
+  width: 430rpx;
+  overflow: hidden;
   padding: 20rpx; 
 }
 

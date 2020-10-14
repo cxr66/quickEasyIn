@@ -28,16 +28,14 @@ Page({
       orderList: []
     }],
     orderList : [{
-      time: '2019-04-06 11:37',
+      id:0,
+      time: '2020-10-06 11:37',
       state: 1,
-      goodsList: [{
-          image: 'https://bkimg.cdn.bcebos.com/pic/b8014a90f603738d027574c0bd1bb051f819ec11?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg',
+      image: 'https://bkimg.cdn.bcebos.com/pic/b8014a90f603738d027574c0bd1bb051f819ec11?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg',
           title:'华住酒店',
           price: 319, 
           number: 1,
           attr: '舒适大床房'
-        }, 
-      ]
     },  
     
     ]
@@ -222,11 +220,17 @@ Page({
   onReachBottom: function () {
 
   },
-
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
 
-  }
+  },
+  /* 跳转 */
+  navigate: function(e) {
+    let link = e.currentTarget.dataset.link;
+    wx.navigateTo({
+      url: link
+    })
+  },
 })

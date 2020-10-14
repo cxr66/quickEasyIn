@@ -13,6 +13,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let description ='<p>会员计划</p>'
     // 把需要转化的wxparse富文本放入该参数中
     WxParse.wxParse('Desc', 'html', description, that, 5);
   },

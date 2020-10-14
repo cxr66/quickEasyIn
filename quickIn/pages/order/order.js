@@ -15,14 +15,14 @@ Page({
     },
 
     {
-      state: 1,
+      state: 3,
       text: '待入住',
       loadingType: 'more',
       orderList: []
     }, 
 
     {
-      state: 2,
+      state: 8,
       text: '商品订单',
       loadingType: 'more',
       orderList: []
@@ -32,10 +32,11 @@ Page({
       time: '2020-10-06 11:37',
       state: 1,
       image: 'https://bkimg.cdn.bcebos.com/pic/b8014a90f603738d027574c0bd1bb051f819ec11?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg',
-          title:'华住酒店',
+          title:'上海市青浦区华住酒店',
           price: 319, 
           number: 1,
-          attr: '舒适大床房'
+          attr: '舒适大床房',
+          address: '上海市青浦区秀娟路1100号'
     },  
     
     ]
@@ -90,10 +91,7 @@ Page({
           return item;
         }
         return item.state === state;
-      });
-      orderList.forEach(function (item) {
-        navItem.orderList.push(item);
-      });
+      }); 
       //loaded新字段用于表示数据加载完毕，如果为空可以显示空白页
       // _this.data.$set(navItem, 'loaded', true);
       
@@ -105,8 +103,7 @@ Page({
   },
 
   //swiper 切换
-  changeTab (e) {
-    // this.data.tabCurrentIndex = e.target.current;
+  changeTab (e) { 
     this.setData({
       tabCurrentIndex : e.target.current
     })
@@ -114,12 +111,25 @@ Page({
     
   },
   //顶部tab点击
-  tabClick (e) {
-    // this.data.tabCurrentIndex = index;
+  tabClick (e) { 
     this.setData({
       tabCurrentIndex : e.target.dataset.index
     })
+    
+    let orderList;
+    if(e.target.dataset.index === 0){
+         // 请求全部订单列表
+    }else if(e.target.dataset.index === 1){
+       // 请求待入住订单列表orderList
+    }else{
+        // 请求商品订单列表: orderList
+    }
+
+    that.setData({
+      orderList: orderList //此处放请求的数据，用变量赋值
+    })
   },
+
   //删除订单
   deleteOrder(index) {
     var _this2 = this;
@@ -143,7 +153,7 @@ Page({
     });
 
     setTimeout(function () {
-      var _this3$orderStateExp =
+      /* var _this3$orderStateExp =
         _this3.orderStateExp(9), stateTip = _this3$orderStateExp.stateTip, stateTipColor = _this3$orderStateExp.stateTipColor;
       item = Object.assign(item, {
         state: 9,
@@ -155,7 +165,7 @@ Page({
       //取消订单后删除待付款中该项
       var list = _this3.data.navList[1].orderList;
       var index = list.findIndex(function (val) { return val.id === item.id; });
-      index !== -1 && list.splice(index, 1);
+      index !== -1 && list.splice(index, 1); */
 
       wx.hideLoading();
     }, 600);

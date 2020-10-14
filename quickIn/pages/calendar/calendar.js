@@ -337,11 +337,13 @@ Page({
           weekDay: this.getToday(this.data.checkInDate)
         }
       });
-      // setTimeout(() => {
+      
+      setTimeout(() => {
+        
       wx.navigateBack({
         delta: 1, // 回退前 delta(默认为1) 页面
       });
-      // }, 1000);
+      }, 1000);
     }
 
     this.renderPressStyle(year, month, day);

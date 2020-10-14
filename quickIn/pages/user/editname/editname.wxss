@@ -1,22 +1,25 @@
 /* pages/user/editname/editname.wxss */
-page {
-  background-color: #fff;
+page { 
   padding: 20rpx 0;
+  overflow: hidden;
 }
 /* form */
-
 .form {
-  margin: 0 74rpx;
+  background-color: #fff;
+  line-height: 80rpx;
+  vertical-align: middle;
 }
-
+.form text{
+  width: 30%;
+  text-align: center;
+}
 .input {
-  padding: 20rpx 0;
-  margin: 30rpx 0;
-  border-bottom: #6b427e solid 2rpx;
-  /* border-radius: 40rpx; */
+  padding: 10rpx 0;
+  margin: 30rpx 0; 
 }
 
-.input input {
-  width: 75%;
-  line-height: 100rpx;
+.input input { 
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 28rpx;
 } 

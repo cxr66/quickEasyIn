@@ -2,7 +2,7 @@
 <view class="content">
 	<scroll-view class="left-aside" scroll-y>
 		<block wx:for="{{flist}}" wx:for-item="item" wx:for-index="__i0__" wx:key="id">
-			<view class="{{['f-item b-b',(item.id===currentId)?'active':'']}}" bindtap="tabtap" data-name='{{item.name}}' data-fid='{{item.id}}'>{{''+item.name+''}}</view>
+			<view class="{{['f-item b-b']}}" bindtap="tabtap" data-name='{{item.name}}' data-fid='{{item.id}}'><text class="{{(item.id===currentId)?'active':''}}">{{''+item.name+''}}</text> </view>
 		</block>
 	</scroll-view>
 	<scroll-view class="right-aside" scroll-with-animation scroll-y scroll-top="{{tabScrollTop}}"  bindscroll="scroll">

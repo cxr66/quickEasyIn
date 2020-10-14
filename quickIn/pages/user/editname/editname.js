@@ -22,6 +22,11 @@ Page({
           delta: 1
         })
       }, 200);
+    }else{
+      wx.showToast({
+        title: '未输入姓名',
+        icon: 'none'
+      })
     }
   },
   /**

@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    coverTransform: 'translateY(-10px)',
+    coverTransform: 'translateY(60px)',
     coverTransition: '0s',
     moving: false,
     // 设置
@@ -24,6 +24,40 @@ Page({
         link: '/pages/address/address',
       }, */
     ],
+    userMemberList:[{
+      title:'房费折扣',
+      desc: '门市价9.8折',
+      img: ''
+    },
+    {
+      title:'移动端预定',
+      desc: '1倍积分',
+      img: ''
+    },{
+      title:'延迟退房至',
+      desc: '12:00',
+      img: ''
+    },{
+      title:'预订保留至',
+      desc: '18:00',
+      img: ''
+    },{
+      title:'生日好礼',
+      desc: '2张礼券',
+      img: ''
+    },{
+      title:'升级好礼',
+      desc: '5张礼券',
+      img: ''
+    },{
+      title:'低价保证',
+      desc: '官渠预订',
+      img: ''
+    },{
+      title:'更多权益',
+      desc: '',
+      img: ''
+    }]
   },
   // 
   /** * 统一跳转接口,拦截未登录路由

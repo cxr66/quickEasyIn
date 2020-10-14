@@ -47,6 +47,23 @@
           filter: blur(1px);
   opacity: .7;
 }
+
+/* 会员特权 */
+.user-unique{ 
+  width: 94%;
+  margin: auto;
+  position: absolute;
+  left: 2%;
+  bottom: 60rpx;
+  background:rgba(0,0,0,0.1);
+  flex-wrap: wrap; 
+}
+.user-unique .user-unique-section{
+  width:23%;
+  margin:30rpx 1%;
+  text-align: center;
+}
+/* 会员卡 */
 .user-info-box {
   height: 180rpx;
   display: -webkit-box;

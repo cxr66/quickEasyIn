@@ -2,48 +2,58 @@
 <view class="content">
 	<view class="navbar">
 		<block wx:for="{{navList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
-			<view data-event-opts="{{[['tap',[['tabClick',[index]]]]]}}" class="{{['nav-item',(tabCurrentIndex===index)?'current':'']}}" data-index="{{index}}" bindtap="tabClick">{{''+item.text+''}}</view>
+			<view  class="{{['nav-item',(tabCurrentIndex===index)?'current':'']}}" data-index="{{index}}" bindtap="tabClick">{{''+item.text+''}}</view>
 		</block>
 	</view>
-	<swiper class="swiper-box" current="{{tabCurrentIndex}}" duration="300" data-event-opts="{{[['change',[['changeTab',['$event']]]]]}}" bindchange="changeTab">
-		<block wx:for="{{navList}}" wx:for-item="tabItem" wx:for-index="tabIndex" wx:key="tabIndex">
-			<swiper-item class="tab-content">
-				<scroll-view class="list-scroll-content" scroll-y >
-				<!-- bindscrolltolower="loadData" -->
-					<block wx:if="{{tabItem.loaded===true&&tabItem.orderList.length===0}}">
-						<!-- <empty vue-id="{{'3c50aaa2-1-'+tabIndex}}" bind:__l="__l"></empty> -->
-					</block>
-					<block wx:for="{{tabItem.orderList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
-						<view class="order-item" bindtap="navigate" data-link="/pages/order/orderDetail/orderDetail?id={{item.id}}">
-							<view class="i-top b-b"><text class="time">{{item.time}}</text><text class="state" style="{{'color:'+(item.stateTipColor)+';'}}">{{item.stateTip}}</text>
-								<block wx:if="{{item.state===9}}"><text class="del-btn yticon icon-iconfontshanchu1" bindtap="deleteOrder"></text></block>
+	<view class="swiper-box" duration="300" >
+	<!-- wx:for="{{navList}}" wx:for-item="tabItem" wx:for-index="tabIndex" wx:key="tabIndex" -->
+		<block >
+			<view class="tab-content">
+				<scroll-view class="list-scroll-content" scroll-y>
+					<!-- bindscrolltolower="loadData" -->
+					<!-- <block wx:if="{{tabItem.loaded===true&&orderList.length===0}}">
+						<empty vue-id="{{'3c50aaa2-1-'+tabIndex}}" bind:__l="__l"></empty>
+					</block> -->
+					<block wx:for="{{orderList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+						<view class="order-item">
+							<view class="i-top b-b"  bindtap="navigate" data-link="/pages/order/orderDetail/orderDetail?id={{item.id}}">
+								<text class="time">{{item.title}}</text>
+								<!-- <text class="state" >{{item.address}}</text> -->
+								<block wx:if="{{item.state===1}}"><text class="del-btn">已取消</text>
+								</block>
+								<block wx:if="{{item.state===3}}"><text class="del-btn">部分入住</text>
+								</block>
+								<block wx:if="{{item.state===6}}"><text class="del-btn">已完成</text>
+								</block>
 							</view>
-						<!-- 	<block wx:if="{{item.goodsList.length>1}}">
-								<scroll-view class="goods-box" scroll-x>
-									<block wx:for="{{item.goodsList}}" wx:for-item="goodsItem" wx:for-index="goodsIndex" wx:key="goodsIndex">
-										<view class="goods-item">
-											<image class="goods-img" src="{{goodsItem.image}}" mode="aspectFill"></image>
-										</view>
-									</block>
-								</scroll-view>
-							</block> -->
-							<!-- <block wx:for="{{item.goodsList}}" wx:for-item="goodsItem" wx:for-index="goodsIndex" wx:key="goodsIndex"> -->
-							<!-- wx:if="{{item.goodsList.length===1}}" -->
-								<block >
-									<view class="goods-box-single">
-										<!-- <image class="goods-img" src="{{goodsItem.image}}" mode="aspectFill"></image> -->
-										<view class="right"><text class="title clamp">{{item.title}}</text><text class="attr-box">{{item.attr+" x "+item.number}}</text><text class="price">{{item.price}}</text></view>
+
+							<block>
+								<view class="goods-box-single fn_22">
+									{{item.address}}
+								</view>
+								<view class="goods-box-single fn_22">
+									入住时间：{{item.time}}
+								</view> 
+							</block>
+							<!-- state 为 1  -->
+								<block wx:if="{{item.state==1|| item.state==6}}">
+									<view class="goods-box-single" style="border-top: 1rpx solid #eee;margin-top:20rpx;">
+										<text class="price color_orange left fn_32" style="line-height: 80rpx;">¥ {{item.price}}</text>
+										<view class="action-box b-t right"><view class="action-btn recom" bindtap="cancelOrder">删除</view><view class="action-btn recom" bindtap="navigate" data-link='/pages/hoteldetail/hoteldetail'>再次预定</view></view>
 									</view>
 								</block>
-							<!-- </block> -->
-							<view class="price-box">共<text class="num">{{ item.number }}</text>酒店 实付款<text class="price">{{item.price}}</text></view>
-							<block wx:if="{{item.state!=1}}">
-								<view class="action-box b-t"><button class="action-btn" bindtap="cancelOrder">取消订单</button><button class="action-btn recom">立即支付</button></view>
-							</block>
+								<!-- state 为 7 （暂时没有这个状态）  -->
+								<block wx:if="{{item.state==7}}">
+									<view class="goods-box-single" style="border-top: 1rpx solid #eee;margin-top:20rpx;">
+										<text class="price color_orange left fn_32" style="line-height: 80rpx;">¥ {{item.price}}</text>
+										<view class="action-box b-t right"><view class="action-btn recom" bindtap="cancelOrder">删除</view><view class="action-btn recom">立即支付</view></view>
+									</view>
+								</block>
+
 						</view>
-					</block> 
+					</block>
 				</scroll-view>
-			</swiper-item>
+			</view>
 		</block>
-	</swiper>
+	</view>
 </view>

@@ -6,6 +6,14 @@
 			<text class="username">尊敬的{{userInfo.nickname}}「星会员」</text>
 			<image class="editImg rightImg" src="/img/my/icon-edit.png" bindtap="navigate" data-link="/pages/user/editname/editname"></image>
 		</view>
+
+		<!-- 会员特权 -->
+		<view class="user-unique row color_EBD1A5">
+			<view wx:for='{{userMemberList}}' class="user-unique-section column">
+				<text class="fn_28">{{item.title}}</text>
+				<text class="fn_24">{{item.desc}}</text>
+			</view>
+		</view>
 		<!-- <view class="user-info-box">
 			<view class="portrait-box">
 				<image class="portrait" src="{{userInfo.portrait}}"></image>
@@ -18,7 +26,9 @@
 			<view class="tit"><text class="yticon icon-iLinkapp-"></text>HOTEL 会员</view><text class="e-m">酒店预订平台</text><text class="e-b">开通会员</text>
 		</view> -->
 	</view>
-	<view class="cover-container" style="{{'transform:'+(coverTransform)+';'+('transition:'+(coverTransition)+';')}}" bindtouchstart="coverTouchstart" bindtouchmove="coverTouchmove" bindtouchend="coverTouchend">
+	<!-- 会员下拉框 -->
+	<!-- bindtouchstart="coverTouchstart" bindtouchmove="coverTouchmove" bindtouchend="coverTouchend" -->
+	<view class="cover-container" style="{{'transform:'+(coverTransform)+';'+('transition:'+(coverTransition)+';')}}" >
 		<image class="arc" src="/img/arc.png"></image>
 
 		<view class="order-section">

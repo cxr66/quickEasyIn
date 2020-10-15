@@ -54,12 +54,14 @@ Page({
       image: 'https://dimg11.c-ctrip.com/images/200q0u000000jid3wC276_R_200_200.jpg',
       title: '上海佘山大酒店',
       price: 289,
-      distance: 10
+      distance: 10,
+      point: 4.9
     },{
       image: 'https://bkimg.cdn.bcebos.com/pic/21a4462309f7905254a1159806f3d7ca7acbd5de?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg',
       title: '上海虹桥桔子水晶酒店',
       price: 319,
-      distance: 8.9
+      distance: 8.9,
+      point: 4.6
     }]
   },
 
@@ -69,7 +71,15 @@ Page({
   onLoad: function (options) {
     that = this;
     that.setData({
-      hotelId: options.id
+      hotelId: options.id,
+      // hotelDetail 是请求拿到当前酒店数据，接口调用后赋值
+      hotelDetail: {
+        point: 4,
+        name: '上海全季酒店',
+        commentNum: 5,
+        isMem: 1,// 会员等级
+        
+      }
     })
     /*   //设缓存缓存起来的日期
       wx.setStorage({
@@ -79,6 +89,7 @@ Page({
           checkOutDate: Moment(new Date()).add(1, 'day').format('YYYY-MM-DD')
         }
       }); */
+      
   },
 /* 选择地点 */
   guideLocation(){

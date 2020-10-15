@@ -3,29 +3,31 @@
   @轮播图
 -->
 <view class="container">
-	<view class="carousel" hidden="true">
+	<view class="carousel" >
 		<swiper indicator-dots circular="true" duration="400">
-			<block wx:for="{{imgList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+			<block wx:for="{{hSwiperList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
 				<swiper-item class="swiper-item">
 					<view class="image-wrapper">
-						<image class="loaded" src="{{item.src}}" mode="aspectFill"></image>
+						<image class="loaded" src="{{item}}" mode="widthFix" data-current="{{item}}" bindtap="preview"></image>
 					</view>
 				</swiper-item>
 			</block>
+			<view class="introduce-section"><text class="title">全季上海酒店</text> 
+	</view>
 		</swiper>
 	</view>
-	<scroll-view class="h-list bg_fff" scroll-x>
+	<scroll-view class="h-list bg_fff" scroll-x hidden="true">
 		<image wx:for='{{ hSwiperList}}' wx:key='key' src="{{item}}" mode="aspectFill" data-current="{{item}}" bindtap="preview"></image>
 	</scroll-view>
-	<view class="introduce-section"><text class="title">全季上海酒店</text> 
-	</view>
+	
 	<view class="share-section" bindtap="guideLocation">
 		<!-- <view class="share-icon"><text class="yticon icon-xingxing"></text>返</view> -->
-		<text class="tit">上海新国际博览中心店</text><text class="yticon icon-bangzhu1"></text>
-		<image class="right" src='/img/icon-location.png' style="width: 40rpx;height: 40rpx;vertical-align: middle;"></image>
+		<text class="tit">上海新国际博览中心店</text> 
+		<image class="right" src='/img/icon-location.png' style="width: 40rpx;height: 40rpx;vertical-align: middle;margin-top: 20rpx"></image>
 		<!-- <view class="share-btn">立即分享<text class="yticon icon-you"></text></view> -->
 	</view>
-	<view class="c-list">
+	<!-- 优惠券 -->
+	<view class="c-list" hidden="true">
 
 		<view class="c-row b-b"><text class="tit">优惠券</text><text class="con t-r red">领取优惠券</text><text class="yticon icon-you"></text></view>
 		<view class="c-row b-b"><text class="tit">促销活动</text>
@@ -39,18 +41,24 @@
 		</view>
 
 	</view>
+	<view class=" memberTips bg_fff fn_26" style="margin: 0;border-radius:0;overflow: hidden;">
+		<image wx:for='{{hotelDetail.point}}' class="left" style="width: 40rpx;height:40rpx;vertical-align:middle;margin:20rpx 0 0 6rpx;" src="/img/icon-point.png" lazy-load='true'></image>
+		<view class="left">棒</view>
+		<image src="/img/icon-right.png" class='rightImg right' lazy-load='true' style="vertical-align:middle;margin-top: 20rpx"></image>
+		<view class="right default">913条评价</view>
+	</view>
 	<!-- 会员本人 -->
 	<view class="autoView memberTips row fn_26">
 		<image style="width: 40rpx;height:40rpx;vertical-align:middle;margin:20rpx;" src="/img/icon-member.png" lazy-load='true'></image>
 		<view class="tips">您是玫瑰金会员，本人预定入住可享 8.8折</view>
-		<image src="/img/icon-right.png" class='rightImg right' lazy-load='true'></image>
+		<image src="/img/icon-right.png" class='rightImg right'  lazy-load='true'></image>
 	</view>
 
 	<view class="detail-desc">
-		<view class=" section fn_24 row text_center" style="position: relative;" bindtap="navigate" data-link="/pages/calendar/calendar?orderFlag=0">
-			{{ checkInDate }}
+		<view class=" section fn_26 row text_center" style="position: relative;" bindtap="navigate" data-link="/pages/calendar/calendar?orderFlag=0">
+			{{ checkInDate }}入住
 			<text class=" color_777 " style="height:40rpx;margin:20rpx 40rpx;line-height: 40rpx;border-radius: 40rpx;border: 1rpx solid #eeeeee;padding:0 10rpx">共 {{ days }} 晚</text>
-			{{ checkOutDate }}
+			{{ checkOutDate }}离店
 			<image src="/img/icon-right.png" class='rightImg right' style="position:absolute;top:30rpx;right:20rpx;" lazy-load='true'></image>
 		</view>
 		<!-- <view class="d-header"><text>房型详情</text></view> -->
@@ -89,7 +97,7 @@
 	</view>
 
 	<!-- 评价详情 -->
-	<view class="eva-section">
+	<view class="eva-section" hidden="true">
 		<view class="e-header"><text class="tit">评价</text><text>(86)</text><text class="tip">好评率 100% ></text><text class="yticon icon-you"></text></view>
 		<view class="eva-box">
 			<image class="portrait" src="http://img3.imgtn.bdimg.com/it/u=1150341365,1327279810&fm=26&gp=0.jpg" mode="aspectFill"></image>
@@ -99,6 +107,10 @@
 		</view>
 	</view>
 
+<!-- 评价详情 -->
+	<view class="eva-section">
+		<view class="e-header"><text class="tit">附近酒店</text></view>
+	</view>
 	<!-- 附近酒店 -->
 	<view class="guess-section">
 		<block wx:for="{{nearbyList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
@@ -106,8 +118,8 @@
 				<view class="image-wrapper">
 					<image src="{{item.image}}" mode="aspectFill"></image>
 				</view>
-				<text class="title clamp">{{item.title}}</text>
-				<text class="title clamp">{{item.point}} 距离此店{{ item.distance}}千米</text>
+				<text class="title clamp text_overflow">{{item.title}}</text>
+				<text class="title clamp fn_24 " style="font-size:26rpx">{{item.point}}分 距离此店{{ item.distance}}千米</text>
 				<text class="price">{{"￥"+item.price}} </text>
 			</view>
 		</block>

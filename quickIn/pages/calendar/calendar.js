@@ -258,7 +258,7 @@ Page({
 
       dateList.push(dateItem);
     }
-    var sFtv = this.data.sFtv;
+    /* var sFtv = this.data.sFtv;
     for (let i = 0; i < dateList.length; i++) {//加入公历节日
       for (let k = 0; k < sFtv.length; k++) {
         if (dateList[i].month == sFtv[k].month) {
@@ -270,7 +270,7 @@ Page({
           }
         }
       }
-    }
+    } */
     this.setData({
       dateList: dateList
     });

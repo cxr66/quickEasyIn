@@ -3,7 +3,7 @@
   @轮播图
 -->
 <view class="container">
-	<view class="carousel" >
+	<view class="carousel" hidden="true">
 		<swiper indicator-dots circular="true" duration="400">
 			<block wx:for="{{hSwiperList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
 				<swiper-item class="swiper-item">
@@ -16,10 +16,11 @@
 	</view>
 		</swiper>
 	</view>
-	<scroll-view class="h-list bg_fff" scroll-x hidden="true">
+	<scroll-view class="h-list bg_fff" scroll-x >
 		<image wx:for='{{ hSwiperList}}' wx:key='key' src="{{item}}" mode="aspectFill" data-current="{{item}}" bindtap="preview"></image>
 	</scroll-view>
 	
+	<view class="bg_fff" style="line-height: 80rpx;padding: 0 30rpx;"><text class="title">全季上海酒店</text> </view>
 	<view class="share-section" bindtap="guideLocation">
 		<!-- <view class="share-icon"><text class="yticon icon-xingxing"></text>返</view> -->
 		<text class="tit">上海新国际博览中心店</text> 
@@ -48,7 +49,7 @@
 		<view class="right default">913条评价</view>
 	</view>
 	<!-- 会员本人 -->
-	<view class="autoView memberTips row fn_26">
+	<view class="memberTips row fn_26">
 		<image style="width: 40rpx;height:40rpx;vertical-align:middle;margin:20rpx;" src="/img/icon-member.png" lazy-load='true'></image>
 		<view class="tips">您是玫瑰金会员，本人预定入住可享 8.8折</view>
 		<image src="/img/icon-right.png" class='rightImg right'  lazy-load='true'></image>
@@ -107,9 +108,15 @@
 		</view>
 	</view>
 
-<!-- 评价详情 -->
+	<!-- 温馨提醒 -->
 	<view class="eva-section">
-		<view class="e-header"><text class="tit">附近酒店</text></view>
+		<view class="e-header fn_bolder"><text class="tit">温馨提醒</text></view>
+		<view class="color_77 fn_24 column"><text>入住时间 14:00 </text> <text>退房时间 12:00</text> </view>
+	</view>
+
+<!-- 附近酒店 -->
+	<view class="eva-section">
+		<view class="e-header fn_bolder"><text class="tit">附近酒店</text></view>
 	</view>
 	<!-- 附近酒店 -->
 	<view class="guess-section">

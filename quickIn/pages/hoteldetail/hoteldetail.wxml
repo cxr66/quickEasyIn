@@ -43,7 +43,7 @@
 
 	</view>
 	<view class=" memberTips bg_fff fn_26" style="margin: 0;border-radius:0;overflow: hidden;">
-		<image wx:for='{{hotelDetail.point}}' class="left" style="width: 40rpx;height:40rpx;vertical-align:middle;margin:20rpx 0 0 6rpx;" src="/img/icon-point.png" lazy-load='true'></image>
+		<image wx:for='{{hotelDetail.point}}' class="left" style="width: 30rpx;height:30rpx;vertical-align:middle;margin:26rpx 0 0 4rpx;" src="/img/icon-point.png" lazy-load='true'></image>
 		<view class="left">棒</view>
 		<image src="/img/icon-right.png" class='rightImg right' lazy-load='true' style="vertical-align:middle;margin-top: 20rpx"></image>
 		<view class="right default">913条评价</view>

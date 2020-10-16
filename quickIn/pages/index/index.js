@@ -3,6 +3,7 @@
 const app = getApp()
 var Moment = require("../../utils/moment.js");
 var { getDaysBetween } = require("../../utils/util.js");
+const { login } = require("../../utils/login.js");
 var DATE_LIST = [];
 var DATE_YEAR = new Date().getFullYear()
 var DATE_MONTH = new Date().getMonth() + 1
@@ -192,6 +193,14 @@ Page({
     wx.removeStorageSync('keyWord');
     this.setData({ 
       ['form.keyWord']: '酒店位置/名称/关键词'
+    })
+  },
+  /* 获取用户信息 */
+  getUserInfo(){
+    console.log(login);
+    login();
+    wx.navigateTo({
+      url: '/pages/index/search/search?orderFlag='+that.data.currentTab,
     })
   },
   /**

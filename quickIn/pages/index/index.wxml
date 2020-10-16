@@ -55,9 +55,10 @@
 			<image wx:if='{{ form.keyWord !== "酒店位置/名称/关键词" }}' src="/img/icon-clear.png" class='rightImg right' lazy-load='true' bindtap="clearKeyWord"></image>
 		</view>
 
-		<view class="btn" bindtap="navigate" data-link='/pages/index/search/search?orderFlag={{currentTab}}'>
+		<!-- button -->
+		<button class="btn" style="padding: 0;width: 640rpx;font-weight: inherit" open-type='getUserInfo' bindgetuserinfo="getUserInfo" data-link='/pages/index/search/search?orderFlag={{currentTab}}'>
 			搜索
-		</view>
+		</button>
 
 
 		<view class=" section fn_26 ">

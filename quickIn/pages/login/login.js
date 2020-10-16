@@ -1,4 +1,5 @@
 // pages/login/login.js
+const { login } = require("../../utils/login.js");
 Page({
 
   /**
@@ -28,6 +29,12 @@ Page({
    */
   onReady: function() {
 
+  },
+
+  /* 获取用户信息 */
+  getUserInfo(){
+    console.log(login);
+    login();
   },
 
   /**

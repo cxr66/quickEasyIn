@@ -1,12 +1,12 @@
 <!--pages/login/login.wxml-->
-<view class="tipsView">
+<view class="tipsView" hidden="true">
   <text class="block">快易住</text>
   <text class="tips">登录/注册</text>
 </view>
 
 <!-- form表单 -->
 <form>
-  <view class="form">
+  <view class="form" hidden="true">
     <view class="input name">
       <input placeholder='请输入手机号' name="username" value='{{ form.name }}'></input>
     </view>
@@ -14,12 +14,14 @@
       <input placeholder='请输入验证码' name="pwd" value='{{ form.pwd }}'></input>
       <view class="getCode  fn_26">获取验证码</view>
     </view>
-
-
-
   </view>
-  <view class="btn" bindtap="switchTab" data-link="/pages/index/index">
-    登录
+
+  <view class="logo">
+  <image src='/img/logo.png'></image>
   </view>
+
+  <button class="btn" style="padding: 0;width: 640rpx;font-weight: inherit" open-type='getUserInfo' bindgetuserinfo="getUserInfo">
+    微信授权
+  </button>
 
 </form>

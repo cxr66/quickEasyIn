@@ -2,8 +2,8 @@
 <view class="contain" >
   <scroll-view class="tab bg_fff" scroll-x scroll-left="{{tabScroll}}" scroll-with-animation="true">
     <block wx:for="{{menuList}}" wx:key="index">
-      <view wx:if='{{ index==3 }}' class="tab-item {{currentTab == index ? 'active' : ''}}" style='width: {{ 100/menuList.length }}%;' data-current="{{index}}" bindtap='clickMenu'>{{item.name}}</view>
-      <view wx:else class="tab-item {{currentTab == index ? 'active' : ''}}" style='width: {{ 100/menuList.length }}%;' data-current="{{ index }}" bindtap='clickMenu'>{{item.name}}</view>
+      <view wx:if='{{ index==3 }}' class="tab-item " style='width: {{ 100/menuList.length }}%;' data-current="{{index}}" bindtap='clickMenu'><text class="{{currentTab == index ? 'active' : ''}}">{{item.name}}</text></view>
+      <view wx:else class="tab-item " style='width: {{ 100/menuList.length }}%;' data-current="{{ index }}" bindtap='clickMenu'><text class="{{currentTab == index ? 'active' : ''}}">{{item.name}}</text> </view>
     </block>
   </scroll-view>
  

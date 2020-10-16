@@ -25,7 +25,7 @@ page {
   box-sizing: border-box;
 } 
 textarea{
-border: 1rpx solid #eeeeee;
+/* border: 1rpx solid #eeeeee; */
 }
 switch {
   zoom: 0.6;

@@ -2,12 +2,12 @@
 <view class="content">
 	<view class="navbar">
 		<block wx:for="{{navList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
-			<view  class="{{['nav-item',(tabCurrentIndex===index)?'current':'']}}" data-index="{{index}}" bindtap="tabClick">{{''+item.text+''}}</view>
+			<view class="{{['nav-item',(tabCurrentIndex===index)?'current':'']}}" data-index="{{index}}" bindtap="tabClick">{{''+item.text+''}}</view>
 		</block>
 	</view>
-	<view class="swiper-box" duration="300" >
-	<!-- wx:for="{{navList}}" wx:for-item="tabItem" wx:for-index="tabIndex" wx:key="tabIndex" -->
-		<block >
+	<view class="swiper-box" duration="300">
+		<!-- wx:for="{{navList}}" wx:for-item="tabItem" wx:for-index="tabIndex" wx:key="tabIndex" -->
+		<block>
 			<view class="tab-content">
 				<scroll-view class="list-scroll-content" scroll-y>
 					<!-- bindscrolltolower="loadData" -->
@@ -16,7 +16,7 @@
 					</block> -->
 					<block wx:for="{{orderList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
 						<view class="order-item">
-							<view class="i-top b-b"  bindtap="navigate" data-link="/pages/order/orderDetail/orderDetail?id={{item.id}}">
+							<view class="i-top b-b" bindtap="navigate" data-link="/pages/order/orderDetail/orderDetail?id={{item.id}}">
 								<text class="time">{{item.title}}</text>
 								<!-- <text class="state" >{{item.address}}</text> -->
 								<block wx:if="{{item.state===1}}"><text class="del-btn">已取消</text>
@@ -28,27 +28,36 @@
 							</view>
 
 							<block>
-								<view class="goods-box-single fn_22">
-									{{item.address}}
+								<view bindtap="navigate" data-link="/pages/order/orderDetail/orderDetail?id={{item.id}}">
+									<view class="goods-box-single fn_22">
+										{{item.address}}
+									</view>
+									<view class="goods-box-single fn_22">
+										入住时间：{{item.time}}
+									</view>
 								</view>
-								<view class="goods-box-single fn_22">
-									入住时间：{{item.time}}
-								</view> 
+
 							</block>
 							<!-- state 为 1  -->
-								<block wx:if="{{item.state==1|| item.state==6}}">
-									<view class="goods-box-single" style="border-top: 1rpx solid #eee;margin-top:20rpx;">
-										<text class="price color_orange left fn_32" style="line-height: 80rpx;">¥ {{item.price}}</text>
-										<view class="action-box b-t right"><view class="action-btn recom" bindtap="cancelOrder">删除</view><view class="action-btn recom" bindtap="navigate" data-link='/pages/hoteldetail/hoteldetail'>再次预定</view></view>
+							<block wx:if="{{item.state==1|| item.state==6}}">
+								<view class="goods-box-single" style="border-top: 1rpx solid #eee;margin-top:20rpx;">
+									<text class="price color_orange left fn_32" style="line-height: 80rpx;">¥ {{item.price}}</text>
+									<view class="action-box b-t right">
+										<view class="action-btn recom" bindtap="cancelOrder">删除</view>
+										<view class="action-btn recom" bindtap="navigate" data-link='/pages/hoteldetail/hoteldetail'>再次预定</view>
 									</view>
-								</block>
-								<!-- state 为 7 （暂时没有这个状态）  -->
-								<block wx:if="{{item.state==7}}">
-									<view class="goods-box-single" style="border-top: 1rpx solid #eee;margin-top:20rpx;">
-										<text class="price color_orange left fn_32" style="line-height: 80rpx;">¥ {{item.price}}</text>
-										<view class="action-box b-t right"><view class="action-btn recom" bindtap="cancelOrder">删除</view><view class="action-btn recom">立即支付</view></view>
+								</view>
+							</block>
+							<!-- state 为 7 （暂时没有这个状态）  -->
+							<block wx:if="{{item.state==7}}">
+								<view class="goods-box-single" style="border-top: 1rpx solid #eee;margin-top:20rpx;">
+									<text class="price color_orange left fn_32" style="line-height: 80rpx;">¥ {{item.price}}</text>
+									<view class="action-box b-t right">
+										<view class="action-btn recom" bindtap="cancelOrder">删除</view>
+										<view class="action-btn recom">立即支付</view>
 									</view>
-								</block>
+								</view>
+							</block>
 
 						</view>
 					</block>

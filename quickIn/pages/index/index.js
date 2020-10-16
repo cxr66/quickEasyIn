@@ -86,7 +86,8 @@ Page({
       data: {
         checkInDate: Moment(new Date()).format('YYYY-MM-DD'),
         checkOutDate: Moment(new Date()).add(1, 'day').format('YYYY-MM-DD'),
-        weekDay: this.getToday(Moment(new Date()).format('YYYY-MM-DD'))
+        checkInweekDay: this.getToday(Moment(new Date()).format('YYYY-MM-DD')),
+        checkOutweekDay: this.getToday(Moment(new Date()).format('YYYY-MM-DD'))
       }
     });
 
@@ -181,6 +182,8 @@ Page({
       checkInDate: getDate.checkInDate.split('-')[1] + '月' + getDate.checkInDate.split('-')[2] + '日',
       checkOutDate: getDate.checkOutDate.split('-')[1] + '月' + getDate.checkOutDate.split('-')[2] + '日',
       weekDay: getDate.weekDay,
+      checkInweekDay: this.getToday(getDate.checkInDate),
+      checkOutweekDay: this.getToday(getDate.checkOutDate),
       days: getDaysBetween(getDate.checkInDate, getDate.checkOutDate),
       ['form.keyWord']: wx.getStorageSync('keyWord')?wx.getStorageSync('keyWord'):'酒店位置/名称/关键词'
     })

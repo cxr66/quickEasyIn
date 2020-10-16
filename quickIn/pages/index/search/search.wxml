@@ -5,7 +5,7 @@
 		<view class="location fn_26 row text_center"><text style="margin-left:20rpx;">{{ locationCity }}</text>
 			<image style="width: 20rpx;height:20rpx;vertical-align:middle;margin: 20rpx 0 0 20rpx;" src="/img/icon-bottom.png" lazy-load='true'></image>
 		</view>
-		<input class='inline_block' data-blur="0" placeholder='搜索关键字/品牌/酒店' value='{{ searchValue }}' bindblur="blur_set"></input>
+		<input class='inline_block' style='background:#eeeeee url("/img/icon-search.png")no-repeat center;background-size: 32rpx 32rpx;background-position:20rpx 14rpx;' data-blur="0" placeholder='搜索关键字/品牌/酒店' value='{{ searchValue }}' bindblur="blur_set"></input>
 	</view>
 	<view class=" section fn_26 relative">
 		<!-- 导航栏 -->

@@ -20,9 +20,7 @@ page{
   font-size: 24rpx; 
   border-radius: 40rpx;
   padding-left: 60rpx;
-  background:#eeeeee url("https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3753758974,4057855761&fm=26&gp=0.jpg")no-repeat center;
-  background-size: 32rpx 32rpx;
-  background-position:20rpx 14rpx;
+  
 }
 .location{
   width: 20%;

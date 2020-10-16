@@ -43,7 +43,7 @@
 			<image src="/img/icon-right.png" class='rightImg' style="position:absolute;right:0;top: 10rpx;" lazy-load='true'></image>
 		</view>
 		<view wx:else class=" section fn_24 " bindtap="navigate" data-link="/pages/calendar/calendar?orderFlag={{currentTab}}">
-			<text class="fn_30">{{ checkInDate }} - {{ checkOutDate }} 周{{weekDay}}</text>
+			<text class="fn_30">{{ checkInDate }} 周{{checkInweekDay}}- {{ checkOutDate }} 周{{checkOutweekDay}}</text>
 			<image src="/img/icon-right.png" class='rightImg right' lazy-load='true'></image>
 			<text class="right color_777">共 {{ days }} 晚</text>
 		</view>
